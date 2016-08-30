@@ -1,5 +1,3 @@
-文中的 " ~~Not Good~~ " 是本人觉得翻译得不太好的地方，希望校稿人修改一下 :)
-分割线 '---' 是方便对照着看，最终不应有。
 
 Getting Started with Behavior Testing in Python with Behave
 
@@ -72,7 +70,7 @@ Here's a brief explanation of the files:
 
 ## 准备环境
 
-本手册将带你为[21 点](https://en.wikipedia.org/wiki/Blackjack?__hstc=233161921.1fa2d526901eecea4854134050555337.1471569543443.1471572299180.1471592605671.3&amp;__hssc=233161921.1.1471592605671&amp;__hsfp=2883479693) (或者 “黑杰克”"Blackjack") 游戏编写测试用例并编写一些代码。 ~~Not Good~~
+本教程将逐步引导你为[21 点](https://en.wikipedia.org/wiki/Blackjack?__hstc=233161921.1fa2d526901eecea4854134050555337.1471569543443.1471572299180.1471592605671.3&amp;__hssc=233161921.1.1471592605671&amp;__hsfp=2883479693) (或者 “黑杰克”"Blackjack")游戏编写一个功能，并为其设计测试用例。
 特别地，我们将测试 `dealer`（发牌员）的逻辑，刚开始，新建一个根目录来放置你将要编写的代码，然后新建下面的文件夹和空文件：
 
 ``` vi
@@ -86,9 +84,9 @@ Here's a brief explanation of the files:
 
 给出这些文件的简单解释：
 
-*   dealer.feature：写好的与发牌员特征（feature）相关的测试
+*   dealer.feature：为 dealer 功能编写的测试
 *   steps.py：用来运行在 `dealer.feature` 编写的测试的代码
-*   twentyone.py：发牌员特征（feature）的实现代码
+*   twentyone.py：发牌员功能（feature）的实现代码
 
 ---
 
@@ -131,13 +129,13 @@ Scenario: Deal initial cards
 Feature: The dealer for the game of 21
 ```
 
-这一行描述了一个特征（feature），在大的应用中，你可能有很多特征（feature）。然后我们添加一个测试，第一个测试很简单 —— 当回合开始时，发牌员给自己发两张牌。Behave 中定义一个测试的关键词是 "Scenario"，所以继续添加下面一行：
+这一行描述了一个功能（feature），在大的应用中，你可能有很多功能（feature）。然后我们添加一个测试，第一个测试很简单 —— 当回合开始时，发牌员给自己发两张牌。Behave 中定义一个测试的关键词是 "Scenario"，所以继续添加下面一行：
    
 ``` vi
 Scenario: Deal initial cards
 ```
 
-在我们编写更多的（测试）之前，我们需要理解一个基本的 Behave 测试的三个阶段：“Given”，“When” 和 “Then”。"Given" 初始化一个状态，"When" 描述一个动作，"Then" 给出预期结果。对于这个测试，我们的状态是一个新的发牌员对象，动作是回合开始，预期结果是发牌员有两张纸牌。下面将这些翻译为一个 Behave 测试：
+在我们编写更多的（测试）之前，我们需要理解一个基本的 Behave 测试的三个阶段：“Given”，“When” 和 “Then”。"Given" 初始化一个状态，"When" 描述一个动作，"Then" 给出预期结果。对于这个测试，我们的状态是一个新的发牌员对象，动作是回合开始，预期结果是发牌员有两张纸牌。下面来看看，它是如何被翻译成一个 Behave 测试用例的：
 
 ``` vi
 Scenario: Deal initial cards
@@ -178,7 +176,7 @@ You can implement step definitions for undefined steps with these snippets:
 
 The key part here is that we have one failing scenario (and therefore a failing feature) that we need to fix. Below that, Behave suggests how to implement steps. You can think of a step as a task for Behave to execute. Each phase ("given", "when", and "then") are all implemented as steps.
 
-注意到这三个阶段读起来就像是通常的英语句子，你应该在编写行为测试时应该坚持这一点因为它们能够被工作在代码库中的任何人轻松理解。
+注意到这三个阶段读起来就像是正常的英语句子，你应该在编写行为测试时应该坚持这一点因为它们能够被工作在代码库中的任何人轻松理解。
 
 现在看一下 Behave 是如何工作的，简单地在代码根目录下打开一个命令行并运行如下指令：
 
@@ -206,7 +204,7 @@ You can implement step definitions for undefined steps with these snippets:
 [ The rest of output removed for brevity ]
 ```
 
-这里的关键是我们有一个需要我们修正的失败的情景（也就是说一个失败的特征），下面是 Behave 建议实现的步骤。你可以把一个步骤想做是 Behave 应该实现的任务，每个阶段（“given”，“when” 和 “then”）都作为步骤实现。
+这里的关键是我们有一个需要我们修正的失败的情景（也就是说一个失败的功能），下面是 Behave 建议实现的步骤。你可以把一个步骤想做是 Behave 来执行的任务，每个阶段（“given”，“when” 和 “then”）都作为步骤实现。
 
 ---
 
@@ -298,7 +296,7 @@ def step_impl(context):
     assert (len(context.dealer.hand) == 2)
 ```
 
-再次指出注释文本与情境文本需要严格匹配，在 “when” 步骤中我们对在 “given” 步骤中生成的对象有访问权并且可以调用其方法，最后，在 “then” 步骤中我们仍有对 `dealer` 的访问权并且我们断言 `dealer` 有两张手牌。
+再次指出注释文本与情境文本需要严格匹配，在 “when” 步骤中我们对在 “given” 步骤中生成的对象 "delaer" 有访问权并且可以调用其方法，最后，在 “then” 步骤中我们仍有对 `dealer` 的访问权并且我们断言 `dealer` 有两张手牌。
 
 ---
 
@@ -342,7 +340,7 @@ Feature: The dealer for the game of 21 # features/dealer.feature:1
 Took 0m0.000s
 ```
 
-我们定义了两个新的需要实现的代码片：`new_round()` 以及 `hand`，回到 `twentyone.py` 并给 `Dealer` 类添加下面的（方法）：
+我们定义了两段新的需要实现的代码：`new_round()` 以及 `hand`，回到 `twentyone.py` 并给 `Dealer` 类添加下面的（方法）：
 
 ``` python
 class Dealer():
@@ -353,7 +351,7 @@ class Dealer():
         self.hand = [_next_card(), _next_card()]
 ```
 
-其中 `_next_card()` 方法 以及卡片的定义将作为这个模块的顶层（top-level）函数，在文件的顶部添加下面的代码：
+其中 `_next_card()` 方法以及纸牌的定义将作为这个模块的顶级（top-level）函数，在文件的顶部添加下面的代码：
 
 ``` python
 import random
@@ -508,9 +506,7 @@ def _hand_total(hand):
 
 “when”步骤没有什么新鲜的，并且“then”步骤看起来也熟悉，如果你想知道在 `total` 参数后的 `:d` 的意思，它是一个简写来告诉 Behave 将参数作为整数对待。这帮我们不必手工写出 `int()` 函数。这里有一个 Behave 接受的完整的[模式列表](https://pythonhosted.org/behave/parse_builtin_types.html?__hstc=233161921.1fa2d526901eecea4854134050555337.1471569543443.1471572299180.1471592605671.3&amp;__hssc=233161921.1.1471592605671&amp;__hsfp=2883479693)，如果你想高级的解析，还可以[定义自己的模式](https://pythonhosted.org/behave/api.html?__hstc=233161921.1fa2d526901eecea4854134050555337.1471569543443.1471572299180.1471592605671.3&amp;__hssc=233161921.1.1471592605671&amp;__hsfp=2883479693#step-parameters).
 
-有许多不同的计算纸牌和的方法，这里给出一种计算发牌员手牌的解法， ~~Not Good~~
-
-在 `twentyone.py` 模块里新建一个顶层方法：
+有许多不同的计算纸牌和的方法，这里给出一种计算发牌员手牌的方法，在 `twentyone.py` 模块里新建一个顶级函数：
 
 ``` python
 def _hand_total(hand):
@@ -619,7 +615,7 @@ def step_impl(context, hand):
 
 The typed parameter `{total:d}` is more restrictive than the untyped `{hand}`, so it must come earlier in the file.
 
-在我们添加新的步骤之前，需要了解在使用参数时，顺序很重要。参数化的步骤需要按限制高到限制低的顺序排列，如果你不这样做，Behave 也许不会匹配原本是正确的步骤。 ~~Not Good~~
+在我们添加新的步骤之前，需要了解在使用参数时，顺序很重要。参数化的步骤需要按限制高到限制低的顺序排列，如果你不这样做，Behave 也许不会匹配原本是正确的步骤。 
 
 为使得事情更加简单，把你的步骤按类型（译注："given,when,then"）分组，下面是一个新的排列合适的步骤：
 
@@ -745,8 +741,7 @@ def step_impl(context, total):
 
 ## 组合起来
 
-我们将写一个测试把我们已经写的代码整合起来，我们已经使用测试向自己证明了发牌员可以处理他自己的纸牌，确定他的手牌点数和，并且单独玩牌，~~Not Good~~
-但是还没有一个把这些整合到一起的代码。既然我们是着重测试驱动开发，让我们为这个行为添加一个测试：
+我们将写一个测试把我们已经写的代码整合起来，我们已经使用测试向自己证明了发牌员可以发牌，确定他的手牌点数和，并且独立玩牌，但是还没有一个把这些整合到一起的代码。既然我们是着重测试驱动开发，让我们为这个行为添加一个测试：
 
 ``` vi
 Scenario: A Dealer can always play
@@ -792,7 +787,7 @@ If you've done everything correctly, running behave should display all of the te
 Took 0m0.007s
 ```
 
-这个测试依赖一个新的你应该添加到 `Dealer` 类中的方法 `make_play()`：
+这个测试依赖一个新的方法：`make_play()`，你需要把这个方法添加到 `Dealer` 类中:
 
 ``` python
 def make_play(self):
@@ -822,7 +817,7 @@ To learn more about BDD and why you might want to adopt it, check out our articl
 
 ## 总结
 
-本教程带你通过使用 Behave 库以及测试驱动开发来编写了一个基于行为测试的新工程。 ~~Not Good~~
+本教程带你通过使用 Behave 库以及测试驱动开发来编写了一个基于行为测试的新工程。 
 
 如果你想要通过在此工程上写更多的测试来获取经验，尝试实现一个 `Player` 类以及 `player.feature` 来玩一些[基本的策略](https://en.wikipedia.org/wiki/Blackjack?__hstc=233161921.1fa2d526901eecea4854134050555337.1471569543443.1471572299180.1471592605671.3&amp;__hssc=233161921.1.1471592605671&amp;__hsfp=2883479693#Basic_strategy)。
 
