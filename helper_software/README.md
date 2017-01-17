@@ -42,7 +42,7 @@ $ pandoc -f html -t markdown_phpextra anchor.html -o anchor.html.md
 这里还是以 `translate` 来介绍，
 
 
-* [https://poedit.net/](https://poedit.net/)，我觉得还是使用
+* [https://poedit.net/](https://poedit.net/)，与 `translate` 的桌面编辑器对比，这个显得更加专业一些。
 
 
-* http://po4a.alioth.debian.org/
+* [http://po4a.alioth.debian.org/](http://po4a.alioth.debian.org/)，还没注意看。
