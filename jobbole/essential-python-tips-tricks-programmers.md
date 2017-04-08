@@ -4,11 +4,11 @@
 
 If you ask any Python programmer to tell about the strengths of Python, he will quote brevity and high readability as the most influencing ones. In this Python tutorial, we’ll cover many essential Python tips and tricks that will authenticate the above two points.
 
-如果你问一个 Python 程序员说一下 Python 的优势，他会说简洁以及高可读是最有影响力的优势。在这个 Python 教程里我们将论及许多基本的 Python 贴士以及技巧来证明上述两点。
+如果你让一个 Python 程序员说一下 Python 的优势，他会说简洁以及高可读是最有影响力的优势。在这个 Python 教程里我们将论及许多基本的 Python 贴士以及技巧来证明上述两点。
 
 We’ve been collecting these useful shortcuts (tips & tricks) since we started using Python. And what’s best than sharing something we know and which could benefit others as well.
 
-我们从开始使用 Python 便收集这些有用的捷径（贴士与技巧），有什么比分享我们知道的同时还有利于其他人还好的事呢？【*】
+我们从开始使用 Python 便收集这些有用的捷径（贴士与技巧）。分享一些我们知道，同时又能造福于人的知识，有什么事情比这更棒吗？
 
 In the past, we’d shared a list of Python programming tips for beginners that aimed to optimize code and reduce coding efforts. And our readers still enjoy reading it.
 
@@ -16,7 +16,7 @@ In the past, we’d shared a list of Python programming tips for beginners that 
 
 So today, we’re back with one more set of essential Python tips and tricks. All these tips can help you minify the code and optimize execution. Moreover, you can readily use them in live projects while working on regular assignments.
 
-所以今天我们带来另一些基本的 Python 贴士与技巧，所有的这些技巧都能帮助你压缩代码并且优化运行。此外，你可以在做一些正常任务时很容易地在真实项目中使用他们【*】。
+所以今天我们带来另一些基本的 Python 贴士与技巧，所有的这些技巧都能帮助你压缩代码并且优化运行。此外，你可以在日常工作中很容易地在真实项目中使用他们。
 
 Each trick has an example given with a brief explanation. For testing the coding snippets, you can look up these online virtual terminals for Python code execution.
 
@@ -1080,9 +1080,9 @@ print(sys.getsizeof(x))
 
 
 
-## Tips#25. Use __slots__ to reduce memory overheads.
+## Tips#25. Use `__slots__` to reduce memory overheads.
 
-Have you ever observed your Python application consuming a lot of resources especially memory? Here is one trick which uses <__slots__> class variable to reduce memory overhead to some extent.
+Have you ever observed your Python application consuming a lot of resources especially memory? Here is one trick which uses <`__slots__`> class variable to reduce memory overhead to some extent.
 
 ``` python
 import sys
@@ -1110,7 +1110,7 @@ print(sys.getsizeof( FileSystem1 ))
 
 
 
-Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
+Clearly, you can see from the results that there are savings in memory usage. But you should use `__slots__` when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
 
 ## 贴士#25. 使用 `__sloats__` 来减少内存开支
 
