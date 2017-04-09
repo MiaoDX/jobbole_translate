@@ -1112,7 +1112,7 @@ print(sys.getsizeof( FileSystem1 ))
 
 Clearly, you can see from the results that there are savings in memory usage. But you should use `__slots__` when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
 
-## 贴士#25. 使用 `__sloats__` 来减少内存开支
+## 贴士#25. 使用 `__slots__` 来减少内存开支
 
 你是否注意到你的 Python 应用占用许多资源特别是内存？有一个技巧是使用 `__slots__` 类变量来在一定程度上减少内存开支。
 
